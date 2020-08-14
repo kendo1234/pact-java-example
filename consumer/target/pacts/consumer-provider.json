@@ -1,0 +1,38 @@
+{
+    "provider": {
+        "name": "provider"
+    },
+    "consumer": {
+        "name": "consumer"
+    },
+    "interactions": [
+        {
+            "description": "GET REQUEST",
+            "request": {
+                "method": "GET",
+                "path": "/validate/even-or-odd",
+                "query": {
+                    "number": [
+                        "2"
+                    ]
+                }
+            },
+            "response": {
+                "status": 200
+            },
+            "providerStates": [
+                {
+                    "name": "test GET"
+                }
+            ]
+        }
+    ],
+    "metadata": {
+        "pact-specification": {
+            "version": "3.0.0"
+        },
+        "pact-jvm": {
+            "version": "3.5.10"
+        }
+    }
+}

@@ -1,0 +1,67 @@
+buildscript {
+    ext {
+        springBootVersion = '2.2.1.RELEASE'
+        verifierVersion = '2.1.1.RELEASE'
+    }
+    repositories { mavenCentral() }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+    }
+}
+
+plugins {
+    id "au.com.dius.pact" version "4.0.8"
+}
+
+
+apply plugin: 'groovy'
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'idea'
+apply plugin: 'maven'
+apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management'
+
+repositories {
+    mavenCentral()
+}
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+repositories { mavenCentral() }
+
+dependencies {
+    compile('org.springframework.boot:spring-boot-starter-web')
+    testCompile('org.springframework.boot:spring-boot-starter-test')
+    compile(group: 'au.com.dius', name: 'pact-jvm-provider-junit_2.12', version: '3.5.10')
+}
+
+//TODO: Setup service provider in gradle build
+
+//
+//    apply plugin: 'au.com.dius.pact'
+//
+//    pact {
+//
+//        serviceProviders {
+//
+//            provider {
+//                protocol = 'http'
+//                host = 'localhost'
+//                port = 8082
+//                path = '/'
+//
+//                hasPactWith('consumer') {
+//
+//                    pactSource = url('http://localhost:80')
+//
+//                }
+//
+//            }
+//
+//        }
+//
+//    }
+
+
